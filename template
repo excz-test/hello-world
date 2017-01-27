@@ -1,0 +1,158 @@
+template.xhtml
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+        <link href="${facesContext.externalContext.requestContextPath}/resources/css/style-template.css" rel="stylesheet" type="text/css"/>
+        <link href="${facesContext.externalContext.requestContextPath}/resources/css/style-menu.css" rel="stylesheet" type="text/css"/>
+        <link href="${facesContext.externalContext.requestContextPath}/resources/css/style-header.css" rel="stylesheet" type="text/css"/>
+        <title><ui:insert name="title"/></title>
+    </h:head>
+    <h:body>
+        <div id="layout">		
+            <div id="header">
+                <div id="logo"></div>
+                <ui:include src="../pages/template/header.xhtml"/>
+            </div>
+            
+            <div id="menu">
+                <ui:insert name="menu">
+                 <ui:include src="../pages/template/menu.xhtml"/>   
+                </ui:insert>                
+            </div>
+
+            <div id="content">
+                <ui:insert name="content">
+                    <span>Página en construcción</span>
+                </ui:insert>
+            </div>
+
+            <div id="footer">
+                <p><a href="#">©</a></p>
+            </div>
+        </div>
+    </h:body>
+</html>
+----header.xhtml
+<html xmlns="http://www.w3.org/1999/xhtml" 
+      xmlns:ui="http://java.sun.com/jsf/facelets">
+    <ui:composition>
+        <div id="header">
+            <div class="wrapper">
+                <div class="logo">Economy</div>
+                <nav id="nav-header">
+                    <a href="#">Inicio</a>
+                    <a href="#">Servicios</a>
+                    <a href="#">Proyectos</a>
+                </nav>
+            </div>
+        </div>
+    </ui:composition>
+</html>
+----menu.xhtml
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html">
+    <ui:composition>
+        <div class="wrapper">Menu
+            <nav id="nav-menu">
+                <a href="#">Inicio</a>
+                <a href="#">Servicios</a>
+                <a href="#">Proyectos</a>
+                <a href="#">Contacto</a>
+            </nav>
+        </div>
+    </ui:composition>
+</html>
+
+-----style-header.css
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Jan 27, 2017, 4:27:03 PM
+    Author     : excz010715
+*/
+
+#header {
+	width:100%; /* Establecemos que el header abarque el 100% del documento */
+	overflow:hidden; /* Eliminamos errores de float */
+	background:#252932;
+	margin-bottom:20px;
+        position: fixed;/*barra de menu mas alto*/
+	height:100px;/*barra de menu mas alto*/
+}
+ 
+.wrapper {
+	width:90%; /* Establecemos que el ancho sera del 90% */
+	max-width:1000px; /* Aqui le decimos que el ancho máximo sera de 1000px */
+	margin:auto; /* Centramos los elementos */
+	overflow:hidden; /* Eliminamos errores de float */
+}
+ 
+#header .logo {
+	color:#f2f2f2;
+	
+	float:left;
+        line-height:100px;/*barra de menu mas alto*/
+	font-size:30px;/*barra de menu mas alto*/
+}
+ 
+#header nav {
+	float:right;
+	
+        line-height:100px;/*barra de menu mas alto*/
+}
+ 
+#header nav a {
+	display:inline-block;
+	color:#fff;
+	text-decoration:none;
+	padding:10px 20px;
+	line-height:normal;
+	font-size:20px;
+	font-weight:bold;
+	-webkit-transition:all 500ms ease;
+	-o-transition:all 500ms ease;
+	transition:all 500ms ease;
+}
+ 
+#header nav a:hover {
+	background:#f56f3a;
+	border-radius:50px;
+}
+@media screen and (max-width: 950px) {
+	#header .logo,
+	#header nav {
+		width:100%;
+		text-align:center; /*Centramos el menu y el logotipo*/
+		line-height:50px;
+	}
+}
+
+
+----index.xhtml
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    <h:head>
+    </h:head>
+        
+    <ui:composition template="WEB-INF/template.xhtml">
+        
+    </ui:composition>
+</html>
+
+
